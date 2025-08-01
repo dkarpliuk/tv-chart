@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>BTCUSDT Chart</title>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tv-chart"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.widget({
+        container_id: "tv-chart",
+        autosize: true,
+        symbol: "BINANCE:BTCUSDT",
+        interval: "60", // 1H
+        timezone: "Etc/UTC",
+        theme: "dark",
+        style: "1",
+        locale: "en",
+        hide_top_toolbar: true,
+        hide_legend: true,
+        withdateranges: false,
+        enable_publishing: false,
+        allow_symbol_change: false,
+        save_image: false,
+        studies: [],
+      });
+    </script>
+  </body>
+</html>
