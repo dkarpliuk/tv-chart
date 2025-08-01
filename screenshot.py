@@ -21,9 +21,10 @@ async def take_screenshot():
     async with async_playwright() as p:
         browser = await p.chromium.launch()
         page = await browser.new_page()
+        await page.set_viewport_size({"width": 2560, "height": 1600})
         await page.goto(URL)
         await page.wait_for_load_state("networkidle")
-        await page.screenshot(path=filename, full_page=True)
+        await page.screenshot(path=filename)
         await browser.close()
 
     print(f"Screenshot saved: {filename}")
