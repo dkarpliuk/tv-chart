@@ -2,12 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>BTCUSDT Chart</title>
+    <title>TV Chart</title>
     <style>
       html, body {
         margin: 0;
         padding: 0;
-        background: #000;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+      #tv-chart {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
       }
     </style>
   </head>
@@ -15,17 +24,21 @@
     <div id="tv-chart"></div>
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script type="text/javascript">
+      const params = new URLSearchParams(window.location.search);
+      const symbol = params.get("symbol");
+      const interval = params.get("interval");
       new TradingView.widget({
         container_id: "tv-chart",
         autosize: true,
-        symbol: "BINANCE:BTCUSDT",
-        interval: "60", // 1H
+        symbol: symbol,
+        interval: interval,
         timezone: "Etc/UTC",
         theme: "dark",
         style: "1",
         locale: "en",
         hide_top_toolbar: true,
         hide_legend: true,
+        hide_volume: true,
         withdateranges: false,
         enable_publishing: false,
         allow_symbol_change: false,
