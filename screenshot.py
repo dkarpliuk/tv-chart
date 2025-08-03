@@ -9,6 +9,8 @@ with open("config.json") as f:
 
 symbol = config.get("symbol")
 interval = config.get("interval")
+screenshot_width = config.get("screenshot_width")
+screenshot_height = config.get("screenshot_height")
 
 URL = f"https://dkarpliuk.github.io/tv-chart/chart.html?symbol={symbol}&interval={interval}"
 OUTPUT_DIR = "screenshots"
@@ -21,7 +23,7 @@ async def take_screenshot():
     async with async_playwright() as p:
         browser = await p.chromium.launch()
         page = await browser.new_page()
-        await page.set_viewport_size({"width": 2560, "height": 1600})
+        await page.set_viewport_size({"width": screenshot_width, "height": screenshot_height})
         await page.goto(URL)
         await page.wait_for_load_state("networkidle")
         await page.screenshot(path=filename)

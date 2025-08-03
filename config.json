@@ -1,4 +1,6 @@
 {
   "symbol": "BINANCE:BTCUSDT",
-  "interval": "1"
+  "interval": "5",
+  "screenshot_width": 1024,
+  "screenshot_height": 1024
 }
